@@ -3,11 +3,11 @@ package entradas;
 import java.util.Date;
 
 public enum Temporada {
-    HIGH,
-    MEDIUM,
-    LOW;
+    ALTA,
+    MEDIA,
+    BAJA;
 
-    public Temporada getSeason(Date date) {
+    public Temporada calcTemporada(Date date) {
         /**
          * 1 al 8 de enero 2019, temporada alta
          */
@@ -45,14 +45,14 @@ public enum Temporada {
                         (date.after(dHS5) && date.before(dHS6)) ||
                         (date.after(dHS7) && date.before(dHS8))
         ) {
-            return HIGH;
+            return ALTA;
         } else if (
                 (date.after(dLS1) && date.before(dLS2)) ||
                         (date.after(dLS3) && date.before(dLS4))
         ) {
-            return LOW;
+            return BAJA;
         } else {
-            return MEDIUM;
+            return MEDIA;
         }
     }
 }

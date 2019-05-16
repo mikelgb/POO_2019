@@ -1,6 +1,6 @@
 package atracciones;
 
-import personas.AgeGroup;
+import personas.GrupoEdad;
 
 public class AtraccionC extends Atraccion {
 
@@ -9,7 +9,7 @@ public class AtraccionC extends Atraccion {
                 0,
                 1.2f,
                 false,
-                new AgeGroup[]{AgeGroup.FREEKID, AgeGroup.KID},
+                new GrupoEdad[]{GrupoEdad.NINOGRATIS, GrupoEdad.NINO},
                 3,
                 1
         );

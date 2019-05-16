@@ -7,46 +7,46 @@ public class Persona {
     /**
      * Nombre de la persona
      */
-    private String name;
+    private String nombre;
     /**
      * Edad de la persona
      */
-    private int age;
+    private int edad;
     /**
      * Altura de la persona
      */
-    private float height;
+    private float altura;
     /**
      * Grupo de edad al que pertenece la persona (niño, adulto o senior)
      */
-    private AgeGroup ageGroup;
+    private GrupoEdad grupoEdad;
 
     /**
      * Constructor principal
      *
-     * @param name Nombre de la persona
-     * @param age Edad de la persona
-     * @param height Altura de la persona
+     * @param nombre Nombre de la persona
+     * @param edad Edad de la persona
+     * @param altura Altura de la persona
      */
-    public Persona(String name, int age, float height) {
-        this.name = name;
-        this.age = age;
-        this.height = height;
-        this._calcAgeGroup();
+    public Persona(String nombre, int edad, float altura) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
+        this.calcGrupoEdad();
     }
 
     /**
      * Método para calcular a qué grupo de edad pertenece la persona
      */
-    private void _calcAgeGroup() {
-        if (age < 3) {
-            this.ageGroup = AgeGroup.FREEKID;
-        } else if (age < 13) {
-            this.ageGroup = AgeGroup.KID;
-        } else if (age < 65) {
-            this.ageGroup = AgeGroup.ADULT;
+    private void calcGrupoEdad() {
+        if (edad < 3) {
+            this.grupoEdad = GrupoEdad.NINOGRATIS;
+        } else if (edad < 13) {
+            this.grupoEdad = GrupoEdad.NINO;
+        } else if (edad < 65) {
+            this.grupoEdad = GrupoEdad.ADULTO;
         } else {
-            this.ageGroup = AgeGroup.SENIOR;
+            this.grupoEdad = GrupoEdad.SENIOR;
         }
     }
 
@@ -55,8 +55,8 @@ public class Persona {
      *
      * @return Nombre de la persona
      */
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
     /**
@@ -64,8 +64,8 @@ public class Persona {
      *
      * @return Edad de la persona
      */
-    public int getAge() {
-        return age;
+    public int getEdad() {
+        return edad;
     }
 
     /**
@@ -73,8 +73,8 @@ public class Persona {
      *
      * @return Altura de la persona
      */
-    public float getHeight() {
-        return height;
+    public float getAltura() {
+        return altura;
     }
 
     /**
@@ -82,17 +82,17 @@ public class Persona {
      *
      * @return Grupo de edad de la persona
      */
-    public AgeGroup getAgeGroup() {
-        return ageGroup;
+    public GrupoEdad getGrupoEdad() {
+        return grupoEdad;
     }
 
     @Override
     public String toString() {
         return "Persona{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", height=" + height +
-                ", ageGroup=" + ageGroup +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", altura=" + altura +
+                ", grupoEdad=" + grupoEdad +
                 '}';
     }
 }

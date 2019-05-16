@@ -31,11 +31,11 @@ public class parque {
 
         for (Persona p : people) {
             System.out.println("\n" + p.toString() + "\n");
-            System.out.println(p.getName() + " en atracción A -> " + atrA.personAllowed(p));
-            System.out.println(p.getName() + " en atracción B -> " + atrB.personAllowed(p));
-            System.out.println(p.getName() + " en atracción C -> " + atrC.personAllowed(p));
-            System.out.println(p.getName() + " en atracción D -> " + atrD.personAllowed(p));
-            System.out.println(p.getName() + " en atracción E -> " + atrE.personAllowed(p));
+            System.out.println(p.getNombre() + " en atracción A -> " + atrA.personaPermitida(p));
+            System.out.println(p.getNombre() + " en atracción B -> " + atrB.personaPermitida(p));
+            System.out.println(p.getNombre() + " en atracción C -> " + atrC.personaPermitida(p));
+            System.out.println(p.getNombre() + " en atracción D -> " + atrD.personaPermitida(p));
+            System.out.println(p.getNombre() + " en atracción E -> " + atrE.personaPermitida(p));
         }
         System.out.println();
         System.out.println();
@@ -43,19 +43,19 @@ public class parque {
         Date today = new Date(119, 2, 1);
         System.out.println(today.toString());
 
-        Entrada e = new Entrada(today) {
+        Entrada e = new Entrada(today, false) {
             @Override
-            public boolean validSale(Persona p) {
+            public boolean ventaValida(Persona p) {
                 return false;
             }
 
             @Override
-            public float calcPrice() {
+            public float calcPrecio() {
                 return 0;
             }
         };
 
-        System.out.println(e.getSeason());
+        System.out.println(e.getTemporada());
     }
 
 

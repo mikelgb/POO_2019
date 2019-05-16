@@ -1,6 +1,6 @@
 package atracciones;
 
-import personas.AgeGroup;
+import personas.GrupoEdad;
 import personas.Persona;
 
 import java.util.Arrays;
@@ -11,35 +11,35 @@ public class Atraccion {
     /**
      * Altura mínima, 0 si no existe
      */
-    private float minHeight;
+    private float alturaMinima;
     /**
      * Altura máxima, 0 si no existe
      */
-    private float maxHeight;
+    private float alturaMaxima;
     /**
      * Permite suplemento VIP
      */
-    private boolean vipAllowed;
+    private boolean vipPermitido;
     /**
      * Grupos de edad permitidos
      */
-    private AgeGroup[] ageGroupsAllowed;
+    private GrupoEdad[] gruposEdadPermitidos;
     /**
      * Número de ayudantes de atracción
      */
-    private int numWorkers;
+    private int numTrabajadores;
     /**
      * Número de supervisores de atraccion
      */
-    private int numSupervisors;
+    private int numSupervisores;
 
-    public Atraccion(float minHeight, float maxHeight, boolean vipAllowed, AgeGroup[] ageGroupsAllowed, int numWorkers, int numSupervisors) {
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
-        this.vipAllowed = vipAllowed;
-        this.ageGroupsAllowed = ageGroupsAllowed;
-        this.numWorkers = numWorkers;
-        this.numSupervisors = numSupervisors;
+    public Atraccion(float alturaMinima, float alturaMaxima, boolean vipPermitido, GrupoEdad[] gruposEdadPermitidos, int numTrabajadores, int numSupervisores) {
+        this.alturaMinima = alturaMinima;
+        this.alturaMaxima = alturaMaxima;
+        this.vipPermitido = vipPermitido;
+        this.gruposEdadPermitidos = gruposEdadPermitidos;
+        this.numTrabajadores = numTrabajadores;
+        this.numSupervisores = numSupervisores;
     }
 
     /**
@@ -47,8 +47,8 @@ public class Atraccion {
      *
      * @return Altura mínima
      */
-    public float getMinHeight() {
-        return minHeight;
+    public float getAlturaMinima() {
+        return alturaMinima;
     }
 
     /**
@@ -56,8 +56,8 @@ public class Atraccion {
      *
      * @return Altura máxima
      */
-    public float getMaxHeight() {
-        return maxHeight;
+    public float getAlturaMaxima() {
+        return alturaMaxima;
     }
 
     /**
@@ -65,8 +65,8 @@ public class Atraccion {
      *
      * @return Permite o no suplemento VIP
      */
-    public boolean isVipAllowed() {
-        return vipAllowed;
+    public boolean isVipPermitido() {
+        return vipPermitido;
     }
 
     /**
@@ -74,8 +74,8 @@ public class Atraccion {
      *
      * @return Grupos de edad permitidos
      */
-    public AgeGroup[] getAgeGroupsAllowed() {
-        return ageGroupsAllowed;
+    public GrupoEdad[] getGruposEdadPermitidos() {
+        return gruposEdadPermitidos;
     }
 
     /**
@@ -83,8 +83,8 @@ public class Atraccion {
      *
      * @return Número de ayudantes de atracción
      */
-    public int getNumWorkers() {
-        return numWorkers;
+    public int getNumTrabajadores() {
+        return numTrabajadores;
     }
 
     /**
@@ -92,8 +92,8 @@ public class Atraccion {
      *
      * @return Número de supervisores de atracción
      */
-    public int getNumSupervisors() {
-        return numSupervisors;
+    public int getNumSupervisores() {
+        return numSupervisores;
     }
 
     /**
@@ -102,12 +102,12 @@ public class Atraccion {
      * @param p Persona que quiere acceder a la atracción
      * @return Si cumple o no las condiciones para acceder
      */
-    public boolean personAllowed(Persona p) {
-        List ageGroupsAsList = Arrays.asList(ageGroupsAllowed);
+    public boolean personaPermitida(Persona p) {
+        List ageGroupsAsList = Arrays.asList(gruposEdadPermitidos);
         if (
-                (this.minHeight == 0 || (this.minHeight != 0 && p.getHeight() > this.minHeight)) &&
-                        (this.maxHeight == 0 || (this.maxHeight != 0 && p.getHeight() < this.maxHeight)) &&
-                        ageGroupsAsList.contains(p.getAgeGroup())
+                (this.alturaMinima == 0 || (this.alturaMinima != 0 && p.getAltura() > this.alturaMinima)) &&
+                        (this.alturaMaxima == 0 || (this.alturaMaxima != 0 && p.getAltura() < this.alturaMaxima)) &&
+                        ageGroupsAsList.contains(p.getGrupoEdad())
         ) {
             return true;
         } else {
